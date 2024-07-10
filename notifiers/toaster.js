@@ -72,16 +72,17 @@ function notifyRaw(options, callback) {
         throw new TypeError('The second argument must be a function callback. You have passed ' + typeof fn);
     }
 
-    /* Possible exit statuses from NtfyToast, we only want to include err if it's -1 code
-        Exit Status     :  Exit Code
-        Failed          : -1
+    /*
+        Possible exit statuses from NtfyToast, we only want to include err if it's -1 code
+            Exit Status     :  Exit Code
+            Failed          : -1
 
-        Success         :  0
-        Hidden          :  1
-        Dismissed       :  2
-        TimedOut        :  3
-        ButtonPressed   :  4
-        TextEntered     :  5
+            Success         :  0
+            Hidden          :  1
+            Dismissed       :  2
+            TimedOut        :  3
+            ButtonPressed   :  4
+            TextEntered     :  5
     */
 
     const ntfyToastResultParser = (err, callback) => {
@@ -100,10 +101,13 @@ function notifyRaw(options, callback) {
 
         callback(null, result);
 
-        // https://github.com/mikaelbr/node-notifier/issues/334
-        // Due to an issue with ntfytoast not using stdio and pipe
-        // when notifications are disabled, make sure named pipe server
-        // is closed before exiting.
+        /*
+            @ref    : https://github.com/mikaelbr/node-notifier/issues/334
+                      Due to an issue with ntfytoast not using stdio and pipe
+                      when notifications are disabled, make sure named pipe server
+                      is closed before exiting.
+        */
+
         server.instance && server.instance.close();
     };
 
@@ -132,7 +136,7 @@ function notifyRaw(options, callback) {
         options.pipeName = server.namedPipe;
 
         const localNotifier = options.customPath || this.options.customPath || notifier + '.exe';
-        //      options.customPath || this.options.customPath || notifier + '-x' + (is64Bit ? '64' : '86') + '.exe';
+        // options.customPath || this.options.customPath || notifier + '-x' + (is64Bit ? '64' : '86') + '.exe';
 
         options = utils.mapToWin8(options);
         const argsList = utils.constructArgumentList(options, {
