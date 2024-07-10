@@ -117,6 +117,8 @@ function doNotification(options, notifierOptions, callback) {
     const fullNotifierPath = notifier + (is64Bit ? '64' : '') + '.exe';
     const localNotifier = notifierOptions.customPath || fullNotifierPath;
 
+    // console.log('Loading ' + fullNotifierPath);
+
     if (!options.m) {
         callback(new Error('Message is required.'));
         return this;

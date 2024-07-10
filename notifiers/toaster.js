@@ -5,7 +5,7 @@ const path = require('path');
 const notifier = path.resolve(__dirname, '../vendor/ntfyToast/ntfytoast');
 const utils = require('../lib/utils');
 const Balloon = require('./balloon');
-const os = require('os');
+// const os = require('os');
 const { v4: uuid } = require('uuid');
 
 const EventEmitter = require('events').EventEmitter;
@@ -37,11 +37,14 @@ function parseResult(data) {
     if (!data) {
         return {};
     }
+
     return data.split(';').reduce((acc, cur) => {
         const split = cur.split('=');
+
         if (split && split.length === 2) {
             acc[split[0]] = split[1];
         }
+
         return acc;
     }, {});
 }
@@ -54,7 +57,8 @@ function getPipeName() {
 function notifyRaw(options, callback) {
     options = utils.clone(options || {});
     callback = callback || noop;
-    const is64Bit = os.arch() === 'x64';
+
+    // const is64Bit = os.arch() === 'x64';
     let resultBuffer;
     const server = {
         namedPipe: getPipeName()
@@ -68,18 +72,19 @@ function notifyRaw(options, callback) {
         throw new TypeError('The second argument must be a function callback. You have passed ' + typeof fn);
     }
 
-    const ntfyToastResultParser = (err, callback) => {
-        /* Possible exit statuses from NtfyToast, we only want to include err if it's -1 code
-    Exit Status     :  Exit Code
-    Failed          : -1
+    /* Possible exit statuses from NtfyToast, we only want to include err if it's -1 code
+        Exit Status     :  Exit Code
+        Failed          : -1
 
-    Success         :  0
-    Hidden          :  1
-    Dismissed       :  2
-    TimedOut        :  3
-    ButtonPressed   :  4
-    TextEntered     :  5
+        Success         :  0
+        Hidden          :  1
+        Dismissed       :  2
+        TimedOut        :  3
+        ButtonPressed   :  4
+        TextEntered     :  5
     */
+
+    const ntfyToastResultParser = (err, callback) => {
         const result = parseResult(resultBuffer && resultBuffer.toString('utf16le'));
 
         // parse action
@@ -92,6 +97,7 @@ function notifyRaw(options, callback) {
         if (err && err.code === -1) {
             callback(err, result);
         }
+
         callback(null, result);
 
         // https://github.com/mikaelbr/node-notifier/issues/334
@@ -125,8 +131,8 @@ function notifyRaw(options, callback) {
         resultBuffer = out;
         options.pipeName = server.namedPipe;
 
-        const localNotifier =
-            options.customPath || this.options.customPath || notifier + '-x' + (is64Bit ? '64' : '86') + '.exe';
+        const localNotifier = options.customPath || this.options.customPath || notifier + '.exe';
+        //      options.customPath || this.options.customPath || notifier + '-x' + (is64Bit ? '64' : '86') + '.exe';
 
         options = utils.mapToWin8(options);
         const argsList = utils.constructArgumentList(options, {
@@ -138,6 +144,7 @@ function notifyRaw(options, callback) {
 
         utils.fileCommand(localNotifier, argsList, actionJackedCallback);
     });
+
     return this;
 }
 

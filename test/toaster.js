@@ -175,8 +175,8 @@ describe('WindowsToaster', function () {
             expect(testUtils.getOptionValue(argsList, '-m')).toBe('foo bar');
             done();
         };
-        const notifier = new Notify();
 
+        const notifier = new Notify();
         notifier.notify({ title: 'Heya', message: 'foo bar' });
     });
 
@@ -186,8 +186,8 @@ describe('WindowsToaster', function () {
             expect(testUtils.getOptionValue(argsList, '-s')).toBe('Notification.Default');
             done();
         };
-        const notifier = new Notify();
 
+        const notifier = new Notify();
         notifier.notify({ title: 'Heya', message: 'foo bar', sound: 'Frog' });
     });
 
@@ -195,24 +195,30 @@ describe('WindowsToaster', function () {
         os.arch = function () {
             return 'ia32';
         };
+
         const expected = 'ntfytoast.exe';
         utils.fileCommand = function (notifier, argsList, callback) {
             expect(notifier).toEndWith(expected);
             done();
         };
-        new Notify().notify({ title: 'title', message: 'body' });
+
+        const notifier = new Notify();
+        notifier.notify({ title: 'title', message: 'body' });
     });
 
     it('should default to x64 version', function (done) {
         os.arch = function () {
             return 'x64';
         };
+
         const expected = 'ntfytoast.exe';
         utils.fileCommand = function (notifier, argsList, callback) {
             expect(notifier).toEndWith(expected);
             done();
         };
-        new Notify().notify({ title: 'title', message: 'body' });
+
+        const notifier = new Notify();
+        notifier.notify({ title: 'title', message: 'body' });
     });
 
     it('sound as true should select default value', function (done) {
@@ -220,8 +226,8 @@ describe('WindowsToaster', function () {
             expect(testUtils.getOptionValue(argsList, '-s')).toBe('Notification.Default');
             done();
         };
-        const notifier = new Notify();
 
+        const notifier = new Notify();
         notifier.notify({ message: 'foo bar', sound: true });
     });
 
@@ -230,8 +236,8 @@ describe('WindowsToaster', function () {
             expect(testUtils.argsListHas(argsList, '-silent')).toBeTruthy();
             done();
         };
-        const notifier = new Notify();
 
+        const notifier = new Notify();
         notifier.notify({ message: 'foo bar', sound: false });
     });
 
@@ -240,8 +246,8 @@ describe('WindowsToaster', function () {
             expect(testUtils.getOptionValue(argsList, '-s')).toBe('Notification.IM');
             done();
         };
-        const notifier = new Notify();
 
+        const notifier = new Notify();
         notifier.notify({
             title: 'Heya',
             message: 'foo bar',
@@ -256,7 +262,6 @@ describe('WindowsToaster', function () {
         };
 
         const notifier = new Notify();
-
         notifier.notify({
             title: 'Heya',
             message: 'foo bar',
