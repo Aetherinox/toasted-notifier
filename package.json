@@ -1,0 +1,101 @@
+{
+    "name": "node-toasted",
+    "description": "Push notifications in NodeJS for MacOS, Windows 7 - 11, and Linux (Growl as fallback)",
+    "version": "10.0.1",
+    "author": "Aetherinox",
+    "contributors": [
+        {
+            "name": "Aetherinox",
+            "email": "adminservx@proton.me",
+            "url": "https://github.com/Aetherinox"
+        }
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "homepage": "https://github.com/Aetherinox/node-toasted#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/Aetherinox/node-toasted.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Aetherinox/node-toasted/issues"
+    },
+    "license": "MIT",
+    "keywords": [
+        "push notifications",
+        "notifications",
+        "macosx",
+        "linux",
+        "windows",
+        "mac os x 10.8",
+        "notify",
+        "toasts",
+        "toaster",
+        "terminal-notifier",
+        "notify-send",
+        "growl",
+        "windows 7",
+        "windows 8",
+        "windows 10",
+        "windows 11"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "pretest": "npm run lint",
+        "test": "jest",
+        "example": "node ./example/message.js",
+        "example:mac": "node ./example/advanced.js",
+        "example:mac:input": "node ./example/macInput.js",
+        "example:windows": "node ./example/toaster.js",
+        "example:windows:actions": "node ./example/toaster-with-actions.js",
+        "example:windows:custom-path": "cross-env DEBUG=notifier node ./example/toaster-custom-path.js",
+        "copy-resources": "copyfiles -u 2 ./vendor/ntfyToast/ntfytoast.exe ./dist/example/resources/ && copyfiles -u 1 ./example/coulson.jpg ./dist/example/resources/",
+        "preexample:windows:nexe-custom-path": "rimraf dist",
+        "example:windows:nexe-custom-path": "nexe -t windows-x64-14.15.3 -i ./example/toaster-custom-path.js -o ./dist/toaster-custom-path.exe && npm run copy-resources",
+        "postexample:windows:nexe-custom-path": "cross-env DEBUG=notifier ./dist/toaster-custom-path.exe",
+        "lint": "eslint example/*.js lib/*.js notifiers/*.js test/**/*.js index.js",
+        "prepare": "husky install"
+    },
+    "jest": {
+        "testRegex": "/test/[^_]*.js",
+        "testEnvironment": "node",
+        "setupFilesAfterEnv": [
+            "./test/_test-matchers.js"
+        ]
+    },
+    "devDependencies": {
+        "copyfiles": "^2.4.1",
+        "cross-env": "^7.0.3",
+        "eslint": "^7.26.0",
+        "eslint-config-semistandard": "^15.0.1",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.3.1",
+        "husky": "^8.0.1",
+        "jest": "^26.6.3",
+        "lint-staged": "^13.0.3",
+        "nexe": "^4.0.0-beta.19",
+        "prettier": "^2.3.0",
+        "rimraf": "^3.0.2"
+    },
+    "dependencies": {
+        "growly": "^1.3.0",
+        "is-wsl": "^2.2.0",
+        "semver": "^7.3.5",
+        "shellwords": "^0.1.1",
+        "uuid": "^8.3.2",
+        "which": "^2.0.2"
+    },
+    "lint-staged": {
+        "*.{js,json,css,md}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "directories": {
+        "example": "example",
+        "test": "test"
+    }
+}

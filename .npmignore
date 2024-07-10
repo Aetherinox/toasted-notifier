@@ -1,0 +1,5 @@
+example/
+test
+*.md
+.eslintrc
+.travis.yml
