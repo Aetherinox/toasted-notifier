@@ -120,7 +120,7 @@ You must create a windows shortcut (.lnk) within your windows Start Menu. This i
 The program used by Toasted Node for Windows 10 & 11 notifications named ntfy-toast; includes a command which will help you create the shortcut link automatically. To do this, open Command Prompt and run the command:
 
 ```shell
-X:\path\to\node\project\node_modules\toasted-notifier\vendor\ntfy-toast\ntfytoast.exe -install "MyApp\MyApp.lnk" "C:\path\to\myApp.exe" "My.APP_ID"
+X:\path\to\node\project\node_modules\toasted-notifier\vendor\ntfytoast\ntfytoast.exe -install "MyApp\MyApp.lnk" "C:\path\to\myApp.exe" "My.APP_ID"
 ```
 
 <br />
@@ -160,7 +160,7 @@ ntfytoast com.ntfytoast.id
 This means that if I wanted to use NtfyToast as the app which sends notifications, my final command would be:
 
 ```
-X:\path\to\node\project\node_modules\toasted-notifier\vendor\ntfy-toast\ntfytoast.exe -install "Ntfytoast\Ntfytoast.lnk" "C:\path\to\ntfytoast.exe" "com.ntfytoast.id"
+X:\path\to\node\project\node_modules\toasted-notifier\vendor\ntfytoast\ntfytoast.exe -install "Ntfytoast\Ntfytoast.lnk" "C:\path\to\ntfytoast.exe" "com.ntfytoast.id"
 ```
 
 <br />
