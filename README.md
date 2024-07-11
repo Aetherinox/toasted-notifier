@@ -61,6 +61,8 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
       - [Spotlight](#spotlight)
     - [WindowsToaster](#windowstoaster)
       - [Notifications Not Working](#notifications-not-working)
+      - [Windows 10 Fall Creators Update (Version 1709):](#windows-10-fall-creators-update-version-1709)
+    - [Growl](#growl)
   - [appID support](#appid-support)
     - [Create App Shortcut](#create-app-shortcut)
     - [Call App](#call-app)
@@ -92,7 +94,7 @@ The correct notification package will be used by Toasted Node depending on the e
 <br />
 
 ## What is ntfy-toast
-[ntfy-toast](https://github.com/Aetherinox/ntfy-toast) is a notification system for Windows 10/11. It is one of the libraries used by Node Toasted to display notifications for users.
+[ntfy-toast](https://github.com/Aetherinox/ntfy-toast) is a notification system for Windows 8 - 11. It is one of the libraries used by Node Toasted to display notifications for users.
 
 It is based on [SnoreToast](https://github.com/KDE/snoretoast), but has been updated with numerous features.
 
@@ -189,7 +191,7 @@ new WindowsBalloon(options).notify();
 
 <br />
 
-Or, if you are using several reporters (or you're lazy):
+If you're using several reporters:
 
 ```javascript
 // NOTE: Technically, this takes longer to require
@@ -211,6 +213,7 @@ To see information about each specific vendor and operating system, select one b
 
 - [NotificationCenter](#notificationcenter)
 - [WindowToaster](#windowstoaster)
+- [Growl](#growl)
 
 ---
 
@@ -218,7 +221,7 @@ To see information about each specific vendor and operating system, select one b
 
 ### NotificationCenter
 - A Node.js wrapper for terminal-notify (with fallback).
-- `node_modules\toasted-notifier\notifiers\notificationcenter.js`
+- Code available at: `node_modules\toasted-notifier\notifiers\notificationcenter.js`
 - Requires macOS version 10.8 or higher; otherwise the fallback is Growl. If growl is not installed, an error will be returned in the callback.
 
 <br />
@@ -336,7 +339,7 @@ Example: `./vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-not
 
 ### WindowsToaster
 - A Node.js wrapper for Windows 7, 8, 10, and 11 notifications.
-- `node_modules\toasted-notifier\notifiers\toaster.js`
+- Code available at: `node_modules\toasted-notifier\notifiers\toaster.js`
 
 <br />
 
@@ -381,6 +384,116 @@ Enable both permissions for `banner` and `sound`:
 </div>
 
 </div>
+
+#### Windows 10 Fall Creators Update (Version 1709):
+This node package utilizes [ntfy-toast](https://github.com/Aetherinox/ntfy-toast) to display native Windows notifications.
+
+<br />
+
+By default when a notification is displayed, the application name at the top of the popup will be `NtfyToast`. The app has an app id which is fed into Toasted-Notifier which is how the notification system knows what application name to show at the top of each notification. The app id is built into each application.
+
+<br />
+
+With the Fall Creators Update, Notifications on Windows 10 will only work as expected if a valid **appID** is specified. The appID must be exactly the same value that was registered during the installation of the app.
+
+<br />
+
+If you wish to have an alternative program name show at the top of each notification, you will need to feed your own app id into the code that calls your notification toasts.
+
+<br />
+
+For a in-depth write-up on how to get the app id for your custom program, read the section [appID support](#appid-support). 
+
+<br />
+
+You can attempt to quickly find the `appID` for an application by opening PowerShell and executing the command:
+
+```powershell
+get-StartApps | Where-Object {$_.Name -like '*YourAppName*'}
+```
+
+<br />
+
+In our example, we can run
+```powershell
+get-StartApps | Where-Object {$_.Name -like '*Ntfytoast*'}
+```
+
+<br />
+
+Which returns the following:
+```console
+Name          AppID
+----          -----
+ntfytoast     com.ntfytoast.id
+```
+
+<br />
+
+You can also find the ID of your App by searching the registry for the appID you specified at installation of your app. For example: If you use the squirrel framework, your appID would be `com.squirrel.your.app`.
+
+<br />
+
+Once you have found the custom app id you wish to use for notifications; you can provide it when calling a notification, such as with the example below, in which we use `com.ntfytoast.id`:
+
+<br />
+
+```javascript
+const WindowsToaster = require('toasted-notifier').WindowsToaster;
+
+const toasted = new WindowsToaster({
+    withFallback: false,            // Fallback to Growl or Balloons
+    customPath: undefined           // Relative/Absolute path if you want to use your fork of SnoreToast.exe
+});
+
+toasted.notify(
+    {
+        title: undefined,           // String           | Required
+        message: undefined,         // String           | Required if remove is not defined
+        icon: undefined,            // String           | Absolute path to Icon
+        sound: false,               // Bool or String   | (as defined by http://msdn.microsoft.com/en-us/library/windows/apps/hh761492.aspx)
+        id: undefined,              // Number           | ID to use for closing notification.
+        appID: 'com.ntfytoast.id',  // String           | App.ID and app Name. Defaults to no value, causing SnoreToast text to be visible.
+        remove: undefined,          // Number           | Refer to previously created notification to close.
+        install: undefined          // String           | <path, application, app id> |  Creates a shortcut <path> in the start menu which point to the executable <application>, appID used for the notifications.
+    },
+    function (error, response) {
+        console.log(response);
+    }
+);
+```
+
+<br />
+
+As stated before, there is a very in-depth write-up on how to set up your custom application and how to obtain the app id by reading the section [appID support](#appid-support).
+
+<br />
+
+### Growl
+- A Node.js wrapper for terminal-notify (with fallback).
+- Code available at: `node_modules\toasted-notifier\notifiers\growl.js`
+- [View Growl Github Repo](https://github.com/theabraham/growly/)
+
+<br />
+
+```javascript
+const Growl = require('toasted-notifier').Growl;
+
+const toasted = new Growl({
+    name: 'Growl Name Used', // Defaults to 'Node'
+    host: 'localhost',
+    port: 23053
+});
+
+toasted.notify({
+    title: 'Foo',
+    message: 'My Message',
+    icon: fs.readFileSync(__dirname + '/example_1.png'),
+    wait: true,                     // whether or not to sticky the notification (defaults to false.
+    label: undefined,               // type of notification to use (defaults to the first registered notification type.)
+    priority: undefined             // the priority of the notification from lowest (-2) to highest (2).
+});
+```
 
 <br />
 
