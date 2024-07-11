@@ -149,14 +149,14 @@ jobs:
             npm config set @aetherinox:registry 'https://npm.pkg.github.com'
             npm config set //npm.pkg.github.com/:_authToken '${NODE_AUTH_TOKEN}'
           env:
-            NODE_AUTH_TOKEN: ${{ secrets.SELF_TOKEN_CL }}
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         - name: "📦 NPM Actions"
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: |
             npm install
             npm publish
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.SELF_TOKEN_CL }}
 
     # ---------------------------------------------------------------------------------------
     #   Job > Release > Github
