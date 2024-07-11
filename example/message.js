@@ -1,6 +1,6 @@
-const notifier = require('../index');
+const toasted = require('../index');
 
-notifier
+toasted
     .notify({ message: 'Hello', wait: true }, function (err, data) {
         // Will also wait until notification is closed.
         console.log('Waited');

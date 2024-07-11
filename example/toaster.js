@@ -1,7 +1,7 @@
-const notifier = require('../index');
 const path = require('path');
+const toasted = require('../index');
 
-notifier.notify(
+toasted.notify(
     {
         message: 'This is a longer notification which\ndisplays numerous lines of text for\nthe user to see.\nNice.',
         icon: path.join(__dirname, 'example_1.png'),
@@ -14,10 +14,10 @@ notifier.notify(
     }
 );
 
-notifier.on('timeout', () => {
+toasted.on('timeout', () => {
     console.log('Timed out!');
 });
 
-notifier.on('click', () => {
+toasted.on('click', () => {
     console.log('Clicked!');
 });

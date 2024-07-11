@@ -1,11 +1,11 @@
 const path = require('path');
-const notifier = require('../index');
+const toasted = require('../index');
 
 /*
     Push notifications
 */
 
-notifier.notify(
+toasted.notify(
     {
         title: 'Persistent Notifications',
         message: 'This notification will stay on screen until user selects an action',
@@ -21,20 +21,20 @@ notifier.notify(
 );
 
 // Built-in actions:
-notifier.on('timeout', () => {
+toasted.on('timeout', () => {
     console.log('Timed out!');
 });
-notifier.on('activate', () => {
+toasted.on('activate', () => {
     console.log('Clicked!');
 });
-notifier.on('dismissed', () => {
+toasted.on('dismissed', () => {
     console.log('Dismissed!');
 });
 
 // Buttons actions (lower-case):
-notifier.on('ok', () => {
+toasted.on('ok', () => {
     console.log('"Ok" was pressed');
 });
-notifier.on('cancel', () => {
+toasted.on('cancel', () => {
     console.log('"Cancel" was pressed');
 });

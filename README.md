@@ -47,6 +47,9 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
   - [What is ntfy-toast](#what-is-ntfy-toast)
 - [Features](#features)
 - [Install](#install)
+  - [Usage](#usage)
+    - [Cross-Platform Advanced Usage](#cross-platform-advanced-usage)
+    - [Fine-grained Control](#fine-grained-control)
   - [appID support](#appid-support)
     - [Create App Shortcut](#create-app-shortcut)
     - [Call App](#call-app)
@@ -105,6 +108,86 @@ Simply install it using:
 
 ```shell
 npm install --save toasted-notifier
+```
+
+<br />
+
+---
+
+<br />
+
+## Usage
+Example code for implementing notifications:
+
+<br />
+
+### Cross-Platform Advanced Usage
+This format can be used for all notification vendors _(Windows, Linux, Mac)_
+
+```javascript
+const toasted = require('toasted-notifier');
+const path = require('path');
+
+toasted.notify(
+    {
+        title: 'Notification Title',
+        message: 'This is a message',
+        icon: path.join(__dirname, 'example_1.png'),    // Absolute path (doesn't work on balloons)
+        sound: true,                                    // Only Notification Center or Windows Toasters
+        wait: true                                      // Wait on callback until user interacts, does not apply to Windows Toasters as they always wait or notify-send as it does not support the wait option
+    },
+
+    function (err, response, metadata) {
+        // Response is response from notification
+        // Metadata contains activationType, activationAt, deliveredAt
+    }
+);
+
+toasted.on('click', function (obj, options, event) {
+    // Triggers if `wait: true` and user clicks notification
+});
+
+toasted.on('timeout', function (obj, options) {
+    // Triggers if `wait: true` and notification closes
+});
+```
+
+<br />
+
+### Fine-grained Control
+If you want super fine-grained control for each reporter; you can call them individually. This allows you to tune specific options for the different vendors.
+
+See below for documentation on each reporter.
+```javascript
+const NotificationCenter = require('toasted-notifier/notifiers/notificationcenter');
+new NotificationCenter(options).notify();
+
+const NotifySend = require('toasted-notifier/notifiers/notifysend');
+new NotifySend(options).notify();
+
+const WindowsToaster = require('toasted-notifier/notifiers/toaster');
+new WindowsToaster(options).notify();
+
+const Growl = require('toasted-notifier/notifiers/growl');
+new Growl(options).notify();
+
+const WindowsBalloon = require('toasted-notifier/notifiers/balloon');
+new WindowsBalloon(options).notify();
+```
+
+<br />
+
+Or, if you are using several reporters (or you're lazy):
+
+```javascript
+// NOTE: Technically, this takes longer to require
+const tn = require('node-notifier');
+
+new tn.NotificationCenter(options).notify();
+new tn.NotifySend(options).notify();
+new tn.WindowsToaster(options).notify(options);
+new tn.WindowsBalloon(options).notify(options);
+new tn.Growl(options).notify(options);
 ```
 
 <br />

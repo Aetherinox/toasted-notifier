@@ -1,5 +1,5 @@
-const notifier = require('../index');
-const balloon = notifier.WindowsBalloon();
+const toasted = require('../index');
+const balloon = toasted.WindowsBalloon();
 balloon
     .notify({ message: 'Hello' }, function (err, data) {
         console.log(err, data);

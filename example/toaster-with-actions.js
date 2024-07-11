@@ -1,11 +1,11 @@
 const path = require('path');
-const notifier = require('../index');
+const toasted = require('../index');
 
 /*
     Push notifications
 */
 
-notifier.notify(
+toasted.notify(
     {
         message: 'Are you sure you want to continue?',
         icon: path.join(__dirname, 'example_1.png'),
@@ -19,20 +19,20 @@ notifier.notify(
 );
 
 // Built-in actions:
-notifier.on('timeout', () => {
+toasted.on('timeout', () => {
     console.log('Timed out!');
 });
-notifier.on('activate', () => {
+toasted.on('activate', () => {
     console.log('Clicked!');
 });
-notifier.on('dismissed', () => {
+toasted.on('dismissed', () => {
     console.log('Dismissed!');
 });
 
 // Buttons actions (lower-case):
-notifier.on('ok', () => {
+toasted.on('ok', () => {
     console.log('"Ok" was pressed');
 });
-notifier.on('cancel', () => {
+toasted.on('cancel', () => {
     console.log('"Cancel" was pressed');
 });

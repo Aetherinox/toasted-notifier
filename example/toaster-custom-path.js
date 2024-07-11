@@ -15,7 +15,7 @@ const { WindowsToaster } = require('../');
 */
 
 const customPath = path.join('vendor', 'ntfyToast', 'ntfytoast.exe');
-const notifier = new WindowsToaster({
+const toasted = new WindowsToaster({
     withFallback: false,
     customPath: customPath
 });
@@ -24,7 +24,7 @@ const notifier = new WindowsToaster({
     Push notifications
 */
 
-notifier.notify(
+toasted.notify(
     {
         message: 'Hello!',
         icon: path.join(__dirname, 'example_1.png'),
@@ -37,10 +37,10 @@ notifier.notify(
     }
 );
 
-notifier.on('timeout', () => {
+toasted.on('timeout', () => {
     console.log('Timed out!');
 });
 
-notifier.on('click', () => {
+toasted.on('click', () => {
     console.log('Clicked!');
 });
