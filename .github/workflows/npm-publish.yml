@@ -145,6 +145,12 @@ jobs:
             registry-url: https://npm.pkg.github.com/
             scope: '@aetherinox'
 
+        - run: |
+            npm config set @aetherinox:registry 'https://npm.pkg.github.com'
+            npm config set //npm.pkg.github.com/:_authToken '${NODE_AUTH_TOKEN}'
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.SELF_TOKEN_CL }}
+
         - name: "📦 NPM Actions"
           run: |
             npm install
