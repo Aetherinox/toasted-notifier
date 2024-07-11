@@ -72,6 +72,9 @@
             "./test/_test-matchers.js"
         ]
     },
+    "build": {
+        "appId": "com.ntfytoast.id"
+    },
     "devDependencies": {
         "@types/uuid": "^9.0.8",
         "copyfiles": "^2.4.1",
