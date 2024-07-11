@@ -52,7 +52,7 @@ function notifyRaw(options, callback) {
         return this;
     }
 
-    options.title = options.title || 'Node Notification:';
+    options.title = options.title || 'Example Notification:';
 
     if (hasGrowl || !!options.wait) {
         const localCallback = options.wait ? callback : noop;

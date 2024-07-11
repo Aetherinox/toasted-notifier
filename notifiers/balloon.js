@@ -112,7 +112,7 @@ function doNotification(options, notifierOptions, callback) {
     const is64Bit = os.arch() === 'x64';
     options = options || {};
     options = utils.mapToNotifu(options);
-    options.p = options.p || 'Node Notification:';
+    options.p = options.p || 'Example Notification:';
 
     const fullNotifierPath = notifier + (is64Bit ? '64' : '') + '.exe';
     const localNotifier = notifierOptions.customPath || fullNotifierPath;

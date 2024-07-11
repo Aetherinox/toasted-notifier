@@ -4,7 +4,7 @@ const path = require('path');
 notifier.notify(
     {
         message: 'Hello. This is a longer text\nWith "some" newlines.',
-        icon: path.join(__dirname, 'coulson.jpg'),
+        icon: path.join(__dirname, 'example_1.png'),
         sound: true
     },
     function (err, data) {

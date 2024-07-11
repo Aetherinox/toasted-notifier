@@ -80,7 +80,7 @@ const allowedArguments = ['urgency', 'expire-time', 'icon', 'category', 'hint', 
 
 function doNotification(options, callback) {
     options = utils.mapToNotifySend(options);
-    options.title = options.title || 'Node Notification:';
+    options.title = options.title || 'Example Notification:';
 
     const initial = [options.title, options.message];
     delete options.title;

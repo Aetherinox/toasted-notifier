@@ -63,7 +63,7 @@ describe('WindowsToaster', function () {
             bar: true,
             install: '/dsa/',
             appID: 123,
-            icon: 'file:///C:/node-notifier/test/fixture/coulson.jpg',
+            icon: 'file:///C:/node-notifier/test/fixture/example_1.png',
             id: 1337,
             sound: 'Notification.IM',
             actions: ['Ok', 'Cancel']
@@ -106,7 +106,7 @@ describe('WindowsToaster', function () {
 
         notifier.notify({
             message: 'Heya',
-            appIcon: 'file:///C:/node-notifier/test/fixture/coulson.jpg'
+            appIcon: 'file:///C:/node-notifier/test/fixture/example_1.png'
         });
     });
 
@@ -257,7 +257,7 @@ describe('WindowsToaster', function () {
 
     it('should parse file protocol URL of icon', function (done) {
         utils.fileCommand = function (notifier, argsList, callback) {
-            expect(argsList[3]).toBe('C:\\node-notifier\\test\\fixture\\coulson.jpg');
+            expect(argsList[3]).toBe('C:\\node-notifier\\test\\fixture\\example_1.png');
             done();
         };
 
@@ -265,12 +265,12 @@ describe('WindowsToaster', function () {
         notifier.notify({
             title: 'Heya',
             message: 'foo bar',
-            icon: 'file:///C:/node-notifier/test/fixture/coulson.jpg'
+            icon: 'file:///C:/node-notifier/test/fixture/example_1.png'
         });
     });
 
     it('should not parse local path of icon', function (done) {
-        const icon = path.join(__dirname, 'fixture', 'coulson.jpg');
+        const icon = path.join(__dirname, 'fixture', 'example_1.png');
         utils.fileCommand = function (notifier, argsList, callback) {
             expect(argsList[3]).toBe(icon);
             done();
@@ -303,7 +303,7 @@ describe('WindowsToaster', function () {
                 '-pipeName',
                 '\\\\.\\pipe\\notifierPipe-123456789',
                 '-p',
-                'C:\\node-notifier\\test\\fixture\\coulson.jpg',
+                'C:\\node-notifier\\test\\fixture\\example_1.png',
                 '-m',
                 'foo bar',
                 '-t',
@@ -324,7 +324,7 @@ describe('WindowsToaster', function () {
             close: 123,
             bar: true,
             install: '/dsa/',
-            icon: 'file:///C:/node-notifier/test/fixture/coulson.jpg',
+            icon: 'file:///C:/node-notifier/test/fixture/example_1.png',
             id: 1337,
             sound: 'Notification.IM',
             actions: ['Ok', 'Cancel']

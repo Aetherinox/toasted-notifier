@@ -4,7 +4,7 @@ const path = require('path');
 notifier.notify(
     {
         message: 'Are you sure you want to continue?',
-        icon: path.join(__dirname, 'coulson.jpg'),
+        icon: path.join(__dirname, 'example_1.png'),
         actions: ['OK', 'Cancel']
     },
     (err, data) => {

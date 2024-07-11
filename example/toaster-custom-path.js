@@ -8,7 +8,7 @@ const notifier = new WindowsToaster(notifierOptions);
 notifier.notify(
     {
         message: 'Hello!',
-        icon: path.join(__dirname, 'resources', 'coulson.jpg'),
+        icon: path.join(__dirname, 'resources', 'example_1.png'),
         sound: true
     },
     function (err, data) {

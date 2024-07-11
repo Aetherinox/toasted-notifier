@@ -58,7 +58,7 @@ describe('WindowsBalloon', function () {
     });
 
     it('should pass have default title', function (done) {
-        const expected = ['-m', 'body', '-q', '-p', 'Node Notification:'];
+        const expected = ['-m', 'body', '-q', '-p', 'Example Notification:'];
         expectArgsListToBe(expected, done);
         new Notify().notify({ message: 'body' });
     });
@@ -74,19 +74,19 @@ describe('WindowsBalloon', function () {
     });
 
     it('should escape message input', function (done) {
-        const expected = ['-m', 'some "me\'ss`age`"', '-q', '-p', 'Node Notification:'];
+        const expected = ['-m', 'some "me\'ss`age`"', '-q', '-p', 'Example Notification:'];
         expectArgsListToBe(expected, done);
         new Notify().notify({ message: 'some "me\'ss`age`"' });
     });
 
     it('should be able to deactivate silent mode', function (done) {
-        const expected = ['-m', 'body', '-p', 'Node Notification:'];
+        const expected = ['-m', 'body', '-p', 'Example Notification:'];
         expectArgsListToBe(expected, done);
         new Notify().notify({ message: 'body', sound: true });
     });
 
     it('should be able to deactivate silent mode, by doing quiet false', function (done) {
-        const expected = ['-m', 'body', '-p', 'Node Notification:'];
+        const expected = ['-m', 'body', '-p', 'Example Notification:'];
         expectArgsListToBe(expected, done);
         new Notify().notify({ message: 'body', quiet: false });
     });

@@ -56,7 +56,7 @@ describe('utils', function () {
         });
 
         it('should map icon for growl', function () {
-            const icon = path.join(__dirname, 'fixture', 'coulson.jpg');
+            const icon = path.join(__dirname, 'fixture', 'example_1.png');
             const iconRead = fs.readFileSync(icon);
 
             const expected = { title: 'Foo', message: 'Bar', icon: iconRead };

@@ -10,9 +10,9 @@ nc.notify(
         sound: 'Funk',
         // case sensitive
         wait: true,
-        icon: path.join(__dirname, 'coulson.jpg'),
-        contentImage: path.join(__dirname, 'coulson.jpg'),
-        open: 'file://' + path.join(__dirname, 'coulson.jpg')
+        icon: path.join(__dirname, 'example_1.png'),
+        contentImage: path.join(__dirname, 'example_1.png'),
+        open: 'file://' + path.join(__dirname, 'example_1.png')
     },
     function () {
         console.log(arguments);

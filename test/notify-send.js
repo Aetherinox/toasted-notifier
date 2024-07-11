@@ -32,7 +32,7 @@ describe('notify-send', function () {
     });
 
     it('should pass have default title', function (done) {
-        const expected = ['"Node Notification:"', '"body"', '--expire-time', '"10000"'];
+        const expected = ['"Example Notification:"', '"body"', '--expire-time', '"10000"'];
 
         expectArgsListToBe(expected, done);
         const notifier = new Notify({ suppressOsdCheck: true });
@@ -54,7 +54,7 @@ describe('notify-send', function () {
     it('should escape message input', function (done) {
         const excapedNewline = process.platform === 'win32' ? '\\r\\n' : '\\n';
         const expected = [
-            '"Node Notification:"',
+            '"Example Notification:"',
             '"some' + excapedNewline + ' \\"me\'ss\\`age\\`\\""',
             '--expire-time',
             '"10000"'

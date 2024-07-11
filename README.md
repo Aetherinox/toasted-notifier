@@ -13,7 +13,7 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
 
 <br />
 
-<img src="https://github.com/Aetherinox/ntfy-desktop/assets/118329232/cd7dca36-e0cc-43dc-a4c9-c09e084b3cd0" width="630">
+<img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/bc185e9e-ef27-4d73-af9f-9d62250471a2" width="630">
 
 <br />
 
@@ -150,9 +150,9 @@ get-StartApps | Where-Object {$_.Name -like '*Ntfytoast*'}
 
 Which returns the following:
 ```console
-Name      AppID
-----      -----
-ntfytoast com.ntfytoast.id
+Name          AppID
+----          -----
+ntfytoast     com.ntfytoast.id
 ```
 
 <br />
