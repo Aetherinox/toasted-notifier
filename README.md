@@ -47,9 +47,9 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
   - [What is ntfy-toast](#what-is-ntfy-toast)
 - [Features](#features)
 - [Install](#install)
-  - [Usage](#usage)
-    - [Cross-Platform Advanced Usage](#cross-platform-advanced-usage)
-    - [Fine-grained Control](#fine-grained-control)
+- [Usage](#usage)
+  - [Cross-Platform Advanced Usage](#cross-platform-advanced-usage)
+  - [Fine-grained Control](#fine-grained-control)
   - [appID support](#appid-support)
     - [Create App Shortcut](#create-app-shortcut)
     - [Call App](#call-app)
@@ -116,12 +116,12 @@ npm install --save toasted-notifier
 
 <br />
 
-## Usage
+# Usage
 Example code for implementing notifications:
 
 <br />
 
-### Cross-Platform Advanced Usage
+## Cross-Platform Advanced Usage
 This format can be used for all notification vendors _(Windows, Linux, Mac)_
 
 ```javascript
@@ -154,7 +154,7 @@ toasted.on('timeout', function (obj, options) {
 
 <br />
 
-### Fine-grained Control
+## Fine-grained Control
 If you want super fine-grained control for each reporter; you can call them individually. This allows you to tune specific options for the different vendors.
 
 See below for documentation on each reporter.
