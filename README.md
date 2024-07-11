@@ -72,7 +72,7 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
     - [Can't use Windows Toast notifications in WSL2](#cant-use-windows-toast-notifications-in-wsl2)
     - [Distributing with Electron](#distributing-with-electron)
     - [Using Webpack](#using-webpack)
-    - [Windows: Where are shortcut / .lnk files placed](#windows-where-are-shortcut--lnk-files-placed)
+    - [Windows: Where are files / .lnk files placed](#windows-where-are-files--lnk-files-placed)
     - [Usage in tmux session](#usage-in-tmux-session)
 
 <br />
@@ -762,7 +762,7 @@ This is necessary because toasted-notifier loads the notifiers from a binary, an
 
 <br />
 
-### Windows: Where are shortcut / .lnk files placed
+### Windows: Where are files / .lnk files placed
 In order for you to make your own custom application name appear at the top of a notification, you must create a `.lnk` in your Windows start menu. More about this is outlined in the section [AppID Support](#appid-support)
 
 <br />
@@ -770,6 +770,11 @@ In order for you to make your own custom application name appear at the top of a
 If you need to delete any of the generated `.lnk` files, you can find them in the following locations:
 - `C:\ProgramData\Microsoft\Windows\Start Menu\Programs`
 - `C:\Users\YOURUSERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs`
+
+<br />
+
+Toasted-notifier will also cache `logo.png` in:
+- `C:\Users\YOURUSERNAME\AppData\Local\Temp\ntfytoast`
 
 <br />
 
