@@ -124,16 +124,8 @@ jobs:
         - name: "🎚️ NPM › Install"
           id: task_gpr_install
           run: |
+            npm init -y --scope '@aetherinox'
             npm install
-
-
-        - name: "⚙️ Setup Node2"
-          id: task_gpr_node_setup2
-          uses: actions/setup-node@v4
-          with:
-            node-version: '20.x'
-            registry-url: 'https://npm.pkg.github.com/'
-            scope: '@aetherinox'
 
         - name: "📂 List Files"
           id: task_gpr_publish_list
