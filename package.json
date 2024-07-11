@@ -1,5 +1,5 @@
 {
-    "name": "node-toasted",
+    "name": "node-devlopment-toasted",
     "description": "Push notifications in NodeJS for MacOS, Windows 7 - 11, and Linux (Growl as fallback)",
     "version": "10.0.1",
     "author": "Aetherinox",
