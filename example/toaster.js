@@ -3,7 +3,7 @@ const path = require('path');
 
 notifier.notify(
     {
-        message: 'Hello. This is a longer text\nWith "some" newlines.',
+        message: 'This is a longer notification which\ndisplays numerous lines of text for\nthe user to see.\nNice.',
         icon: path.join(__dirname, 'example_1.png'),
         sound: true
     },
