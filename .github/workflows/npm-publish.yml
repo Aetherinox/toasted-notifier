@@ -124,7 +124,7 @@ jobs:
         - name: "🎚️ NPM › Install"
           id: task_gpr_install
           run: |
-            npm init -y --scope '@aetherinox'
+            npm init -y --scope '@aetherinox/node-toasted'
             npm install
 
         - name: "📂 List Files"
