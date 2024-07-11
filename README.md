@@ -13,6 +13,8 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
 
 <br />
 
+<div align="center">
+
 <img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/8ed8330f-2f1f-43e1-9264-cb5ead9314f0" width="630">
 
 <br />
@@ -24,6 +26,8 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
 <img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/f2ec9a0f-07f0-4cef-b791-99cf97a9fa39" width="630">
 
 <br />
+
+</div>
 
 </div>
 
@@ -55,6 +59,8 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
       - [Sounds](#sounds)
       - [Custom Path](#custom-path)
       - [Spotlight](#spotlight)
+    - [WindowsToaster](#windowstoaster)
+      - [Notifications Not Working](#notifications-not-working)
   - [appID support](#appid-support)
     - [Create App Shortcut](#create-app-shortcut)
     - [Call App](#call-app)
@@ -199,8 +205,14 @@ new tn.Growl(options).notify(options);
 <br />
 
 ## Specific Vendor Documentation
+To see information about each specific vendor and operating system, select one below:
+
+---
 
 - [NotificationCenter](#notificationcenter)
+- [WindowToaster](#windowstoaster)
+
+---
 
 <br />
 
@@ -319,6 +331,56 @@ Example: `./vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-not
 
 `terminal-notifier.app` is located in the `mac.noindex` folder to prevent Spotlight from indexing the app. You can find it in:
 - `toasted-notifier\vendor\mac.noindex\terminal-notifier.app`
+
+<br />
+
+### WindowsToaster
+- A Node.js wrapper for Windows 7, 8, 10, and 11 notifications.
+- `node_modules\toasted-notifier\notifiers\toaster.js`
+
+<br />
+
+**Note:** There are limitations for images in native **Windows 8** notifications:
+
+- Image must be a `PNG` image
+- Image must be smaller than `1024×1024px`
+- Image must be less than `200kb`
+- Image must be specified using an `absolute path`
+
+These limitations are due to the Toast notification system. A good tip is to use something like `path.join` or `path.delimiter` to keep your paths cross-platform.
+
+<br />
+
+#### Notifications Not Working
+If you do not see notifications from Toasted-Notifier, click windows **Start** and locate:
+
+<div align="center">
+
+<img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/1ed99a6a-f122-42f6-beb7-9c355d6622e2" width="380px">
+
+</div>
+
+<br />
+
+Locate Toasted-Notifier, or your `customPath` / `appID` program in the list.
+
+<div align="center">
+
+<img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/2616ea6e-cde0-4240-8797-e671869dbe83" width="380px">
+
+</div>
+
+<br />
+
+Enable both permissions for `banner` and `sound`:
+
+<div align="center">
+
+<img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/4d91a948-2231-4652-ba58-8547bd7ce48d" width="380px">
+
+</div>
+
+</div>
 
 <br />
 
