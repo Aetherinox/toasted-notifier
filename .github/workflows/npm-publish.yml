@@ -124,8 +124,8 @@ jobs:
         - name: Find and Replace
           uses: jacobtomlinson/gha-find-replace@v3
           with:
-            find: "aaa-devlopment-toasted"
-            replace: "node-devlopment-toasted"
+            find: '"name": "node-toasted"'
+            replace: '"name": "@aetherinox/node-toasted"'
             include: "package.json"
             regex: true
 
