@@ -132,6 +132,7 @@ jobs:
         - name: "🎚️ NPM › Install"
           id: task_gpr_install
           run: |
+            cat package.json
             npm install
 
         - name: "📂 List Files"
