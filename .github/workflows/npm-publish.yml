@@ -296,7 +296,7 @@ jobs:
         - name: "📦 Publish › Live"
           id: task_gpr_publish_run_live
           run: |
-            npm publish
+            npm publish --access=public
           env:
             NODE_AUTH_TOKEN: ${{ secrets.SELF_TOKEN_CL }}
 
