@@ -249,37 +249,37 @@ With the above code, we have specified an `appID` on the following line:
 <!-- BADGE > GENERAL -->
 [link-general-npm]: https://npmjs.com
 [link-general-nodejs]: https://nodejs.org
-[link-npmtrends]: http://npmtrends.com/toasted-node
+[link-npmtrends]: http://npmtrends.com/toasted-notifier
 <!-- BADGE > VERSION > GITHUB -->
-[badge-version-gh]: https://img.shields.io/github/v/tag/Aetherinox/toasted-node?logo=GitHub&label=Version&color=ba5225
-[link-version-gh]: https://github.com/Aetherinox/toasted-node/releases
+[badge-version-gh]: https://img.shields.io/github/v/tag/Aetherinox/toasted-notifier?logo=GitHub&label=Version&color=ba5225
+[link-version-gh]: https://github.com/Aetherinox/toasted-notifier/releases
 <!-- BADGE > VERSION > NPMJS -->
-[badge-version-npm]: https://img.shields.io/npm/v/toasted-node?logo=npm&label=Version&color=ba5225
-[link-version-npm]: https://npmjs.com/package/toasted-node
+[badge-version-npm]: https://img.shields.io/npm/v/toasted-notifier?logo=npm&label=Version&color=ba5225
+[link-version-npm]: https://npmjs.com/package/toasted-notifier
 <!-- BADGE > LICENSE -->
 [badge-license-mit]: https://img.shields.io/badge/MIT-FFF?logo=creativecommons&logoColor=FFFFFF&label=License&color=9d29a0
-[link-license-mit]: https://github.com/Aetherinox/toasted-node/blob/main/LICENSE
+[link-license-mit]: https://github.com/Aetherinox/toasted-notifier/blob/main/LICENSE
 <!-- BADGE > BUILD -->
-[badge-build]: https://img.shields.io/github/actions/workflow/status/Aetherinox/toasted-node/release-npm.yml?logo=github&logoColor=FFFFFF&label=Build&color=%23278b30
-[link-build]: https://github.com/Aetherinox/toasted-node/actions/workflows/release-npm.yml
+[badge-build]: https://img.shields.io/github/actions/workflow/status/Aetherinox/toasted-notifier/release-npm.yml?logo=github&logoColor=FFFFFF&label=Build&color=%23278b30
+[link-build]: https://github.com/Aetherinox/toasted-notifier/actions/workflows/release-npm.yml
 <!-- BADGE > DOWNLOAD COUNT -->
-[badge-downloads-gh]: https://img.shields.io/github/downloads/Aetherinox/toasted-node/total?logo=github&logoColor=FFFFFF&label=Downloads&color=376892
-[link-downloads-gh]: https://github.com/Aetherinox/toasted-node/releases
+[badge-downloads-gh]: https://img.shields.io/github/downloads/Aetherinox/toasted-notifier/total?logo=github&logoColor=FFFFFF&label=Downloads&color=376892
+[link-downloads-gh]: https://github.com/Aetherinox/toasted-notifier/releases
 [badge-downloads-npm]: https://img.shields.io/npm/dw/%40aetherinox%2Fmarked-alert-fa?logo=npm&&label=Downloads&color=376892
-[link-downloads-npm]: https://npmjs.com/package/toasted-node
+[link-downloads-npm]: https://npmjs.com/package/toasted-notifier
 <!-- BADGE > DOWNLOAD SIZE -->
-[badge-size-gh]: https://img.shields.io/github/repo-size/Aetherinox/toasted-node?logo=github&label=Size&color=59702a
-[link-size-gh]: https://github.com/Aetherinox/toasted-node/releases
-[badge-size-npm]: https://img.shields.io/npm/unpacked-size/toasted-node/latest?logo=npm&label=Size&color=59702a
-[link-size-npm]: https://npmjs.com/package/toasted-node
+[badge-size-gh]: https://img.shields.io/github/repo-size/Aetherinox/toasted-notifier?logo=github&label=Size&color=59702a
+[link-size-gh]: https://github.com/Aetherinox/toasted-notifier/releases
+[badge-size-npm]: https://img.shields.io/npm/unpacked-size/toasted-notifier/latest?logo=npm&label=Size&color=59702a
+[link-size-npm]: https://npmjs.com/package/toasted-notifier
 <!-- BADGE > COVERAGE -->
-[badge-coverage]: https://img.shields.io/codecov/c/github/Aetherinox/toasted-node?token=MPAVASGIOG&logo=codecov&logoColor=FFFFFF&label=Coverage&color=354b9e
-[link-coverage]: https://codecov.io/github/Aetherinox/toasted-node
+[badge-coverage]: https://img.shields.io/codecov/c/github/Aetherinox/toasted-notifier?token=MPAVASGIOG&logo=codecov&logoColor=FFFFFF&label=Coverage&color=354b9e
+[link-coverage]: https://codecov.io/github/Aetherinox/toasted-notifier
 <!-- BADGE > ALL CONTRIBUTORS -->
-[badge-all-contributors]: https://img.shields.io/github/all-contributors/Aetherinox/toasted-node?logo=contributorcovenant&color=de1f6f&label=contributors
+[badge-all-contributors]: https://img.shields.io/github/all-contributors/Aetherinox/toasted-notifier?logo=contributorcovenant&color=de1f6f&label=contributors
 [link-all-contributors]: https://github.com/all-contributors/all-contributors
 [badge-tests]: https://img.shields.io/github/actions/workflow/status/Aetherinox/marked-alert-fa/npm-tests.yml?logo=github&label=Tests&color=2c6488
-[link-tests]: https://github.com/Aetherinox/toasted-node/actions/workflows/tests.yml
-[badge-commit]: https://img.shields.io/github/last-commit/Aetherinox/toasted-node?logo=conventionalcommits&logoColor=FFFFFF&label=Last%20Commit&color=313131
-[link-commit]: https://github.com/Aetherinox/toasted-node/commits/main/
+[link-tests]: https://github.com/Aetherinox/toasted-notifier/actions/workflows/tests.yml
+[badge-commit]: https://img.shields.io/github/last-commit/Aetherinox/toasted-notifier?logo=conventionalcommits&logoColor=FFFFFF&label=Last%20Commit&color=313131
+[link-commit]: https://github.com/Aetherinox/toasted-notifier/commits/main/
 <!-- prettier-ignore-end -->
