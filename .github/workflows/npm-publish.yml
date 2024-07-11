@@ -117,7 +117,6 @@ jobs:
               run: |
                 echo "VERSION: ${{ steps.task_initialize_package_getversion.outputs.PACKAGE_VERSION }}"
 
-
     # ---------------------------------------------------------------------------------------
     #   JOB > PUBLISH > NPMJS
     # ---------------------------------------------------------------------------------------
@@ -170,17 +169,6 @@ jobs:
           id: task_npm_lint
           run: |
             npm run lint
-
-        # ---------------------------------------------------------------------------------------
-        #   NPM > Publish (Dry Run)
-        # ---------------------------------------------------------------------------------------
-
-        - name: "🪛 NPM: Build"
-          id: task_npm_build
-          run: |
-            npm run build
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
         # ---------------------------------------------------------------------------------------
         #   NPM > Publish (Dry Run)
@@ -405,7 +393,6 @@ jobs:
               run: |
                 echo "GUID: ${{ steps.task_release_dotenv_get.outputs.GUID }}"
                 echo "UUID: ${{ steps.task_release_dotenv_get.outputs.UUID }}"
-
 
             # ---------------------------------------------------------------------------------------
             #   Build Project & Create Zip
