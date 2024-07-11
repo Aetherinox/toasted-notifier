@@ -133,8 +133,8 @@ jobs:
                 | xargs stat --printf="%y %n\n" \
                 | sort -n
 
-        - name: "⚙️ Setup Node"
-          id: task_gpr_node_setup
+        - name: "⚙️ Setup Node2"
+          id: task_gpr_node_setup2
           uses: actions/setup-node@v4
           with:
             node-version: '20.x'
