@@ -837,7 +837,7 @@ When using toasted-notifier within a tmux session, it can cause the system to ab
 [link-license-mit]: https://github.com/Aetherinox/toasted-notifier/blob/main/LICENSE
 <!-- BADGE > BUILD -->
 [badge-build]: https://img.shields.io/github/actions/workflow/status/Aetherinox/toasted-notifier/release-npm.yml?logo=github&logoColor=FFFFFF&label=Build&color=%23278b30
-[link-build]: https://github.com/Aetherinox/toasted-notifier/actions/workflows/release-npm.yml
+[link-build]: https://github.com/Aetherinox/toasted-notifier/actions/workflows/npm-publish.yml
 <!-- BADGE > DOWNLOAD COUNT -->
 [badge-downloads-gh]: https://img.shields.io/github/downloads/Aetherinox/toasted-notifier/total?logo=github&logoColor=FFFFFF&label=Downloads&color=376892
 [link-downloads-gh]: https://github.com/Aetherinox/toasted-notifier/releases
