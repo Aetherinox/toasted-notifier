@@ -10,9 +10,6 @@
             "url": "https://github.com/Aetherinox"
         }
     ],
-    "publishConfig": {
-        "access": "public"
-    },
     "homepage": "https://github.com/Aetherinox/node-toasted#readme",
     "repository": {
         "type": "git",
