@@ -110,5 +110,12 @@
     "directories": {
         "example": "example",
         "test": "test"
-    }
+    },
+    "files": [
+        "lib/",
+        "notifiers/",
+        "vendor/",
+        "LICENSE.md",
+        "README.md"
+    ]
 }
