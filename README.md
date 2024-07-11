@@ -73,6 +73,7 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
     - [Distributing with Electron](#distributing-with-electron)
     - [Using Webpack](#using-webpack)
     - [Windows: Where are files / .lnk files placed](#windows-where-are-files--lnk-files-placed)
+    - [Header icon broken / missing / default](#header-icon-broken--missing--default)
     - [Usage in tmux session](#usage-in-tmux-session)
 
 <br />
@@ -779,6 +780,21 @@ Toasted-notifier will also cache `logo.png` in:
 <br />
 
 Delete any folders named `NtfyToast`, or whatever your custom app name is.
+
+<br />
+
+### Header icon broken / missing / default
+If you show a notification and notice that the far top-left icon next to the app name is either missing or is showing a default application icon, you may need to clear your start menu `.lnk` file.
+
+<br />
+
+Go to the following folders, and delete the `NtfyToast/` folder. 
+- `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\NtfyToast\`
+- `C:\Users\YOURUSERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\NtfyToast\`
+
+<br />
+
+If you are using a custom application, search for the app name as a folder, and delete that folder.
 
 <br />
 
