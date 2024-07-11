@@ -45,6 +45,7 @@
         "example:mac": "node ./example/advanced.js",
         "example:mac:input": "node ./example/macInput.js",
         "example:windows": "node ./example/toaster.js",
+        "example:windows:persistent": "node ./example/toaster-persistent.js",
         "example:windows:actions": "node ./example/toaster-with-actions.js",
         "example:windows:custom-path": "noxenv DEBUG=notifier node ./example/toaster-custom-path.js",
         "copy-resources": "copyfiles -u 2 ./vendor/ntfyToast/ntfytoast.exe ./dist/example/resources/ && copyfiles -u 1 ./example/example_1.png ./dist/example/resources/",

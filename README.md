@@ -13,11 +13,15 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
 
 <br />
 
+<img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/8ed8330f-2f1f-43e1-9264-cb5ead9314f0" width="630">
+
+<br />
+
 <img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/ca453129-bf45-4b92-9979-447219b7df02" width="630">
 
 <br />
 
-<img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/8ed8330f-2f1f-43e1-9264-cb5ead9314f0" width="630">
+<img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/f2ec9a0f-07f0-4cef-b791-99cf97a9fa39" width="630">
 
 <br />
 

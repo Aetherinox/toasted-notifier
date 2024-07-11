@@ -7,8 +7,10 @@ const notifier = require('../index');
 
 notifier.notify(
     {
-        message: 'Are you sure you want to continue?',
+        title: 'Persistent Notifications',
+        message: 'This notification will stay on screen until user selects an action',
         icon: path.join(__dirname, 'example_1.png'),
+        persistent: true,
         actions: ['OK', 'Cancel']
     },
     (err, data) => {

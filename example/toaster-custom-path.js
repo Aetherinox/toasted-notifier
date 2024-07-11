@@ -1,14 +1,33 @@
-const { WindowsToaster } = require('../');
 const path = require('path');
 
-const customPath = path.join(__dirname, 'resources', 'ntfytoast.exe');
-const notifierOptions = { withFallback: false, customPath };
-const notifier = new WindowsToaster(notifierOptions);
+/*
+    Target specific notification vendor
+*/
+
+const { WindowsToaster } = require('../');
+
+/*
+    withFallback
+    Fallback to Growl or Balloons?
+
+    customPath
+    Relative/Absolute path if you want to use your fork of SnoreToast.exe
+*/
+
+const customPath = path.join('vendor', 'ntfyToast', 'ntfytoast.exe');
+const notifier = new WindowsToaster({
+    withFallback: false,
+    customPath: customPath
+});
+
+/*
+    Push notifications
+*/
 
 notifier.notify(
     {
         message: 'Hello!',
-        icon: path.join(__dirname, 'resources', 'example_1.png'),
+        icon: path.join(__dirname, 'example_1.png'),
         sound: true
     },
     function (err, data) {
