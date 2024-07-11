@@ -9,7 +9,18 @@ Toasted Notifier is a forked verison of [node-notifier](https://github.com/mikae
 <br />
 
 This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-desktop)
+
 </p>
+
+<br />
+
+<div align="center">
+
+<!-- prettier-ignore-start -->
+[![Version][badge-version-gh]][link-version-gh] [![Build Status][badge-build]][link-build] [![Downloads][badge-downloads-gh]][link-downloads-gh] [![Size][badge-size-gh]][badge-size-gh] [![Last Commit][badge-commit]][badge-commit]
+<!-- prettier-ignore-end -->
+
+</div>
 
 <br />
 
@@ -25,19 +36,7 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
 
 <img src="https://github.com/Aetherinox/toasted-notifier/assets/118329232/f2ec9a0f-07f0-4cef-b791-99cf97a9fa39" width="630">
 
-<br />
-
 </div>
-
-</div>
-
-<br />
-
-<div align="center">
-
-<!-- prettier-ignore-start -->
-[![Version][badge-version-gh]][link-version-gh] [![Build Status][badge-build]][link-build] [![Downloads][badge-downloads-gh]][link-downloads-gh] [![Size][badge-size-gh]][badge-size-gh] [![Last Commit][badge-commit]][badge-commit]
-<!-- prettier-ignore-end -->
 
 </div>
 
