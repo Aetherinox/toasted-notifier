@@ -126,13 +126,6 @@ jobs:
           run: |
             npm install
 
-        - name: "🧪 Publish › Dry Run"
-          id: task_gpr_publish_run_dry
-          run: |
-            npm publish --workspaces --if-present --dry-run
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.SELF_TOKEN_CL }}
-
         - name: "📂 List Files"
           id: task_gpr_publish_list
           run: |
@@ -143,6 +136,6 @@ jobs:
         - name: "📦 Publish › Live"
           id: task_gpr_publish_run_live
           run: |
-            npm publish --workspaces --if-present
+            npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.SELF_TOKEN_CL }}
