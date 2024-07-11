@@ -55,15 +55,15 @@ Toasted Node allows you to send cross platform native notifications using Node.j
 
 The correct notification package will be used by Toasted Node depending on the end-user operating system:
 -  `MacOS`: Notification Center
-  - `>= 10.8` for native notifications, or Growl if earlier. 
+   - `>= 10.8` for native notifications, or Growl if earlier. 
 -  `Linux`: notify-osd or libnotify-bin
-  - notify-osd or libnotify-bin must be installed 
-  - Ubuntu should have this by default
+   - notify-osd or libnotify-bin must be installed 
+   - Ubuntu should have this by default
 -  `Windows 8 - 11`: [ntfy-toast](#what-is-ntfy-toast)
 -  `Windows 7 and earlier`: Taskbar balloons
-  -  Taskbar balloons for Windows < 8.
-  -  Growl as fallback.
-  -  Growl takes precedence over Windows balloons.  
+   -  Taskbar balloons for Windows < 8.
+   -  Growl as fallback.
+   -  Growl takes precedence over Windows balloons.  
 -  `Other`: Growl is used if none of these requirements are met
 
 <br />
