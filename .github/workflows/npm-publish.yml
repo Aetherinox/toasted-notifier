@@ -237,7 +237,7 @@ jobs:
         name: >-
           📦 Publish › Release
         runs-on: ubuntu-latest
-        needs: [ job-initialize, job-publish-npm, job-publish-gpr ]
+        needs: [ job-initialize, job-publish-gpr ]
         env:
           PACKAGE_VERSION: ${{ needs.job-initialize.outputs.package_version }}
         if: |
