@@ -50,6 +50,11 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
 - [Usage](#usage)
   - [Cross-Platform Advanced Usage](#cross-platform-advanced-usage)
   - [Fine-grained Control](#fine-grained-control)
+  - [Specific Vendor Documentation](#specific-vendor-documentation)
+    - [NotificationCenter](#notificationcenter)
+      - [Sounds](#sounds)
+      - [Custom Path](#custom-path)
+      - [Spotlight](#spotlight)
   - [appID support](#appid-support)
     - [Create App Shortcut](#create-app-shortcut)
     - [Call App](#call-app)
@@ -190,6 +195,130 @@ new tn.WindowsToaster(options).notify(options);
 new tn.WindowsBalloon(options).notify(options);
 new tn.Growl(options).notify(options);
 ```
+
+<br />
+
+## Specific Vendor Documentation
+
+- [NotificationCenter](#notificationcenter)
+
+<br />
+
+### NotificationCenter
+- A Node.js wrapper for terminal-notify (with fallback).
+- `node_modules\toasted-notifier\notifiers\notificationcenter.js`
+- Requires macOS version 10.8 or higher; otherwise the fallback is Growl. If growl is not installed, an error will be returned in the callback.
+
+<br />
+
+Since toasted-notifier wraps around `terminal-notifier`, you can do anything terminal-notifier can by passing properties to the method.
+- if `terminal-notifier` says `-message`, you can do `{message: 'Foo'}`
+- if `terminal-notifier` says `-list ALL`, you can do `{list: 'ALL'}`
+
+<br />
+
+Notification is the primary focus of this module, so listing and activating do work, but they aren't documented.
+
+<br />
+
+```javascript
+const NotificationCenter = require('toasted-notifier').NotificationCenter;
+
+const toasted = new NotificationCenter({
+    withFallback: false,        // Use Growl Fallback if <= 10.8
+    customPath: undefined       // Relative/Absolute path to binary if you want to use your own fork of terminal-notifier
+});
+
+toasted.notify(
+    {
+        title: undefined,
+        subtitle: undefined,
+        message: undefined,
+        sound: false,               // Case Sensitive string for location of sound file, or use one of macOS' native sounds (see below)
+        icon: 'Terminal Icon',      // Absolute Path to Triggering Icon
+        contentImage: undefined,    // Absolute Path to Attached Image (Content Image)
+        open: undefined,            // URL to open on Click
+        wait: false,                // Wait for User Action against Notification or times out. Same as timeout = 5 seconds
+
+        // New in latest version. See `example/macInput.js` for usage
+        timeout: 5,                 // Takes precedence over wait if both are defined.
+        closeLabel: undefined,      // String. Label for cancel button
+        actions: undefined,         // String | Array<String>. Action label or list of labels in case of dropdown
+        dropdownLabel: undefined,   // String. Label to be used if multiple actions
+        reply: false                // Boolean. If notification should take input. Value passed as third argument in callback and event emitter.
+    },
+    function (error, response, metadata) {
+        console.log(response, metadata);
+    }
+);
+```
+
+<br />
+
+> [!NOTE]
+> The wait option is shorthand for `timeout: 5`. This just sets a timeout for 5 seconds. It does not make the notification stick until the user interacts with it.
+> 
+> **macOS Notifications**: `icon`, `contentImage`, and all forms of `reply`/`actions` require macOS 10.9.
+
+<br />
+
+There is a default timeout set of `10` to ensure that the application closes properly. To remove the timeout and have a notification instantly close _(does not support actions)_, set `timeout: false`. If you are using an `action:`; it is recommended to set timeout to a high value to ensure the user has time to respond to the notification.
+
+> [!NOTE]
+> **Exception**: If `reply: true` is defined, set timeout to a high value, or to nothing at all.
+
+<br />
+
+#### Sounds
+
+When specifying a `sound`, you have the following options:
+- Basso
+- Blow
+- Bottle
+- Frog
+- Funk
+- Glass
+- Hero
+- Morse
+- Ping
+- Pop
+- Purr
+- Sosumi
+- Submarine
+- Tink
+
+<br />
+
+If `sound: true`, **Bottle** is the default sound.
+
+<br />
+
+---
+
+<br />
+
+**See Also:**
+
+- [Example: specific Notification Centers](./example/advanced.js)
+- [Example: input](./example/macInput.js).
+
+<br />
+
+---
+
+<br />
+
+#### Custom Path
+`customPath` takes a string which can be either a relative or absolute path to the binary of your fork/custom version of terminal-notifier.
+
+Example: `./vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`
+
+<br />
+
+#### Spotlight
+
+`terminal-notifier.app` is located in the `mac.noindex` folder to prevent Spotlight from indexing the app. You can find it in:
+- `toasted-notifier\vendor\mac.noindex\terminal-notifier.app`
 
 <br />
 
