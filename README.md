@@ -160,7 +160,7 @@ ntfytoast com.ntfytoast.id
 This means that if I wanted to use NtfyToast as the app which sends notifications, my final command would be:
 
 ```
-ntfytoast.exe -install "Ntfytoast\Ntfytoast.lnk" "C:\path\to\ntfytoast.exe" "com.ntfytoast.id"
+X:\path\to\node\project\node_modules\ntfy-toast\vendor\ntfy-toast\ntfytoast.exe -install "Ntfytoast\Ntfytoast.lnk" "C:\path\to\ntfytoast.exe" "com.ntfytoast.id"
 ```
 
 <br />
