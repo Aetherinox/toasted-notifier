@@ -121,6 +121,9 @@ jobs:
             registry-url: 'https://npm.pkg.github.com/'
             scope: '@aetherinox'
 
+        - name: Manual Login
+          run: npm login --registry=https://npm.pkg.github.com/ --scope=@aetherinox --always-auth
+
         - name: "🎚️ NPM › Install"
           id: task_gpr_install
           run: |
