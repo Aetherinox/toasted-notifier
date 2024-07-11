@@ -129,17 +129,8 @@ jobs:
         - name: "📂 List Files"
           id: task_gpr_publish_list
           run: |
-            find . -type f ! -path './node_modules/*' ! -path './.git/*' ! -path './.github/*' \
-                | xargs stat --printf="%y %n\n" \
-                | sort -n
+            cat /home/runner/work/_temp/.npmrc
 
-        - name: "⚙️ Setup Node2"
-          id: task_gpr_node_setup2
-          uses: actions/setup-node@v4
-          with:
-            node-version: '20.x'
-            registry-url: 'https://npm.pkg.github.com/'
-            scope: '@aetherinox'
 
         - name: "📦 Publish › Live"
           id: task_gpr_publish_run_live
