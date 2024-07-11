@@ -69,6 +69,12 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
     - [Create App Shortcut](#create-app-shortcut)
     - [Call App](#call-app)
   - [Help](#help)
+    - [How to change text `NtfyToast` at the top of notifications](#how-to-change-text-ntfytoast-at-the-top-of-notifications)
+    - [Can't use Windows Toast notifications in WSL2](#cant-use-windows-toast-notifications-in-wsl2)
+    - [Distributing Toasted-Notifer with Electron](#distributing-toasted-notifer-with-electron)
+    - [Using Webpack](#using-webpack)
+    - [Windows: Where are shortcut / .lnk files placed](#windows-where-are-shortcut--lnk-files-placed)
+    - [Usage in tmux session](#usage-in-tmux-session)
 
 
 <br />
@@ -692,14 +698,14 @@ With the above code, we have specified an `appID` on the following line:
 <br />
 
 ## Help
-- How do I change the text `NtfyToast` at the top of the notification
+### How to change text `NtfyToast` at the top of notifications
 In order to change the text `NtfyToast`, you must supply an `-appID`. Windows Toast notifications require that you provide an application id for a valid Windows application before Windows will allow you to link another program.
 
 For instructions on accomplishing this, read the section [appID support](#appid-support)
 
 <br />
 
-- Can't use Windows Toast notifications in WSL2
+### Can't use Windows Toast notifications in WSL2
 Ntfy makes use of a 3rd party package for Windows notifications to work. You must change the permissions on the Ntfy vendor .exe in order for it to work properly.
 
 
@@ -718,7 +724,7 @@ You can add a `postinstall` action in the `package.json`:
 
 <br />
 
-- Distributing Toasted-Notifer with Electron
+### Distributing Toasted-Notifer with Electron
 If you package your Electron based app as an asar; toasted-notifier will fail to load. This is because of how a asar package works. You cannot execute a binary from within an asar package. 
 
 Is solution is that when packaging the app into an asar, make sure you `--unpack` the `vendor/` folder of toasted-notifier so that the module still has access to the notification vendor binaries.
@@ -743,6 +749,49 @@ build: {
 ```
 
 <br />
+
+### Using Webpack
+When using toasted-notifier inside of webpack, you must add the snippet below to your `webpack.config.js`.
+
+```javascript
+node: {
+  __filename: true,
+  __dirname: true
+}
+```
+
+This is necessary because toasted-notifier loads the notifiers from a binary, and needs a relative file path. When webpack compiles the modules, it suppresses file directories, causing toasted-notifier to error on certain platforms.
+
+<br />
+
+### Windows: Where are shortcut / .lnk files placed
+In order for you to make your own custom application name appear at the top of a notification, you must create a `.lnk` in your Windows start menu. More about this is outlined in the section [AppID Support](#appid-support)
+
+<br />
+
+If you need to delete any of the generated `.lnk` files, you can find them in the following locations:
+- `C:\ProgramData\Microsoft\Windows\Start Menu\Programs`
+- `C:\Users\YOURUSERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs`
+
+<br />
+
+Delete any folders named `NtfyToast`, or whatever your custom app name is.
+
+<br />
+
+### Usage in tmux session
+When using toasted-notifier within a tmux session, it can cause the system to abruptly hang. To solve this issue:
+
+- Upgrade **tmux** from `1.9a` to `2.0` with `brew update && brew upgrade tmux`
+- Install **reattach-to-user-namespace** with `brew update && brew install reattach-to-user-namespace`
+- Open `~/.tmux.conf` and add the following lines:
+    ```
+    # Reattach each new window to the user bootstrap namespace
+    # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+    set -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL -l"
+    ```
+
+
 
 <br />
 
