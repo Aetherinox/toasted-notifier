@@ -53,6 +53,7 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
   - [appID support](#appid-support)
     - [Create App Shortcut](#create-app-shortcut)
     - [Call App](#call-app)
+  - [Help](#help)
 
 
 <br />
@@ -181,7 +182,7 @@ Or, if you are using several reporters (or you're lazy):
 
 ```javascript
 // NOTE: Technically, this takes longer to require
-const tn = require('node-notifier');
+const tn = require('toasted-notifier');
 
 new tn.NotificationCenter(options).notify();
 new tn.NotifySend(options).notify();
@@ -269,7 +270,6 @@ C:\Users\USER\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 
 </div>
 
-
 <br />
 
 ### Call App
@@ -306,6 +306,65 @@ With the above code, we have specified an `appID` on the following line:
 ```javascript
     appID: 'com.ntfytoast.id',
 ```
+
+<br />
+
+---
+
+<br />
+
+## Help
+- How do I change the text `NtfyToast` at the top of the notification
+In order to change the text `NtfyToast`, you must supply an `-appID`. Windows Toast notifications require that you provide an application id for a valid Windows application before Windows will allow you to link another program.
+
+For instructions on accomplishing this, read the section [appID support](#appid-support)
+
+<br />
+
+- Can't use Windows Toast notifications in WSL2
+Ntfy makes use of a 3rd party package for Windows notifications to work. You must change the permissions on the Ntfy vendor .exe in order for it to work properly.
+
+
+```shell
+chmod +x node_modules/toasted-notifier/vendor/ntfyToast/ntfytoast.exe
+```
+
+<br />
+
+You can add a `postinstall` action in the `package.json`:
+```yml
+ "scripts": {
+    "postinstall": "chmod +x node_modules/toasted-notifier/vendor/ntfyToast/ntfytoast.exe
+  }
+```
+
+<br />
+
+- Distributing Toasted-Notifer with Electron
+If you package your Electron based app as an asar; toasted-notifier will fail to load. This is because of how a asar package works. You cannot execute a binary from within an asar package. 
+
+Is solution is that when packaging the app into an asar, make sure you `--unpack` the `vendor/` folder of toasted-notifier so that the module still has access to the notification vendor binaries.
+
+You can do so with the following command:
+```shell
+asar pack . app.asar --unpack "./node_modules/toasted-notifier/vendor/**"
+```
+
+<br />
+
+Or if you use electron-builder without using asar directly; append build object to your `package.json` as below:
+
+```
+...
+build: {
+  asarUnpack: [
+    './node_modules/toasted-notifier/**/*',
+  ]
+},
+...
+```
+
+<br />
 
 <br />
 
