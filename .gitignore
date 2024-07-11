@@ -81,7 +81,7 @@
 !*.npmignore
 !*.all-contributorsrc
 !*.editorconfig
-!*node-toasted.js
+!*ntfy.js
 !*index.js
 !*manifest.json
 !*package.json

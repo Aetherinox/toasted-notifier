@@ -14,13 +14,13 @@ on:
 
       # ---------------------------------------------------------------------------------------
       #   Name of the plugin to use when creating the release zip filename
-      #     e.g: node-toasted-v1.0.0.zip
+      #     e.g: toasted-notifier-v1.0.0.zip
       # ---------------------------------------------------------------------------------------
 
       PLUGIN_NAME:
         description:  "📦 Name of Plugin"
         required:     true
-        default:      'node-toasted'
+        default:      'toasted-notifier'
         type:         string
 
       # ---------------------------------------------------------------------------------------
@@ -61,11 +61,11 @@ on:
       # ---------------------------------------------------------------------------------------
       #   Release Candidate version number
       #   this will be added to the end of your released app in the releases page.
-      #     e.g: node-toasted-v1.0.0-rc.1
+      #     e.g: toasted-notifier-v1.0.0-rc.1
       # ---------------------------------------------------------------------------------------
 
       VERSION_RC:
-        description:  "🧪 RC (Pre-release) Ver (node-toasted-rc.v1)"
+        description:  "🧪 RC (Pre-release) Ver (toasted-notifier-rc.v1)"
         required:     false
         type:         string
         default:      "1"
@@ -248,8 +248,8 @@ jobs:
         - name: "🔎 Find and Replace (Start)"
           uses: jacobtomlinson/gha-find-replace@v3
           with:
-            find: '"name": "node-toasted"'
-            replace: '"name": "@aetherinox/node-toasted"'
+            find: '"name": "toasted-notifier"'
+            replace: '"name": "@aetherinox/toasted-notifier"'
             include: "package.json"
             regex: true
 
@@ -303,8 +303,8 @@ jobs:
         - name: "🔎 Find and Replace (Finish)"
           uses: jacobtomlinson/gha-find-replace@v3
           with:
-            find: '"name": "@aetherinox/node-toasted"'
-            replace: '"name": "node-toasted"'
+            find: '"name": "@aetherinox/toasted-notifier"'
+            replace: '"name": "toasted-notifier"'
             include: "package.json"
             regex: true
 
@@ -372,7 +372,7 @@ jobs:
             - name: "🪪 Generate IDs"
               id: task_release_npm_env_generate
               run: |
-                npm run node-toasted:generate
+                npm run ntfy:generate
 
             # ---------------------------------------------------------------------------------------
             #   Get guid and uuid from env variable

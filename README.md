@@ -71,11 +71,10 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
   - [Help](#help)
     - [How to change text `NtfyToast` at the top of notifications](#how-to-change-text-ntfytoast-at-the-top-of-notifications)
     - [Can't use Windows Toast notifications in WSL2](#cant-use-windows-toast-notifications-in-wsl2)
-    - [Distributing Toasted-Notifer with Electron](#distributing-toasted-notifer-with-electron)
+    - [Distributing with Electron](#distributing-with-electron)
     - [Using Webpack](#using-webpack)
     - [Windows: Where are shortcut / .lnk files placed](#windows-where-are-shortcut--lnk-files-placed)
     - [Usage in tmux session](#usage-in-tmux-session)
-
 
 <br />
 
@@ -102,7 +101,7 @@ The correct notification package will be used by Toasted Node depending on the e
 <br />
 
 ## What is ntfy-toast
-[ntfy-toast](https://github.com/Aetherinox/ntfy-toast) is a notification system for Windows 8 - 11. It is one of the libraries used by Toasted Notifier to display notifications for users.
+[ntfy-toast](https://github.com/Aetherinox/ntfy-toast) is a package included in this repo, which services notifications for users running Windows 8 - 11.
 
 It is based on [SnoreToast](https://github.com/KDE/snoretoast), but has been updated with numerous features.
 
@@ -724,7 +723,7 @@ You can add a `postinstall` action in the `package.json`:
 
 <br />
 
-### Distributing Toasted-Notifer with Electron
+### Distributing with Electron
 If you package your Electron based app as an asar; toasted-notifier will fail to load. This is because of how a asar package works. You cannot execute a binary from within an asar package. 
 
 Is solution is that when packaging the app into an asar, make sure you `--unpack` the `vendor/` folder of toasted-notifier so that the module still has access to the notification vendor binaries.
