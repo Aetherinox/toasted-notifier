@@ -1,5 +1,5 @@
 {
-    "name": "node-toasted",
+    "name": "toasted-notifier",
     "description": "Push notifications in NodeJS for MacOS, Windows 7 - 11, and Linux (Growl as fallback)",
     "version": "10.0.1",
     "author": "Aetherinox",
@@ -10,13 +10,13 @@
             "url": "https://github.com/Aetherinox"
         }
     ],
-    "homepage": "https://github.com/Aetherinox/node-toasted#readme",
+    "homepage": "https://github.com/Aetherinox/ntfy-toast-node#readme",
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/Aetherinox/node-toasted.git"
+        "url": "git+ssh://git@github.com/Aetherinox/ntfy-toast-node.git"
     },
     "bugs": {
-        "url": "https://github.com/Aetherinox/node-toasted/issues"
+        "url": "https://github.com/Aetherinox/ntfy-toast-node/issues"
     },
     "license": "MIT",
     "keywords": [
@@ -55,11 +55,11 @@
         "prepare": "husky install",
         "contrib:add": "all-contributors add",
         "contrib:generate": "all-contributors generate",
-        "node-toasted": "node node-toasted.js",
-        "node-toasted:generate": "node node-toasted.js generate",
-        "env-base": "npx --quiet env-cmd --no-override node node-toasted.js",
-        "env-uuid": "npx --quiet env-cmd --no-override node node-toasted.js uuid",
-        "env-guid": "npx --quiet env-cmd --no-override node node-toasted.js guid",
+        "ntfy-toast-node": "node ntfy.js",
+        "ntfy-toast-node:generate": "node ntfy.js generate",
+        "env-base": "npx --quiet env-cmd --no-override node ntfy.js",
+        "env-uuid": "npx --quiet env-cmd --no-override node ntfy.js uuid",
+        "env-guid": "npx --quiet env-cmd --no-override node ntfy.js guid",
         "env-version": "node -p require('./package.json').version;"
     },
     "jest": {
