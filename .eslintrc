@@ -1,5 +1,4 @@
 {
-    "plugins": ["prettier"],
     "extends": [
         "semistandard"
     ],
@@ -21,7 +20,6 @@
         "indent": 0,
         "prefer-spread": 1,
         "no-mixed-operators": 1,
-        "prettier/prettier": 1,
         "camelcase": ["error", {
             "allow": ["^UNSAFE_"],
             "properties": "never",
