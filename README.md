@@ -374,7 +374,9 @@ If you do not see notifications from Toasted-Notifier, click windows **Start** a
 
 <br />
 
-Locate Toasted-Notifier, or your `customPath` / `appID` program in the list.
+Locate `NtfyToast`, or your `customPath` / `appID` program in the list.
+
+<sup>`Note`: <a href="https://github.com/Aetherinox/ntfy-toast">NtfyToast</a> is the library used in Toasted-Notifier for Windows notifications</sup>
 
 <div align="center">
 
