@@ -1,7 +1,7 @@
 {
     "plugins": ["prettier"],
     "extends": [
-      "semistandard"
+        "semistandard"
     ],
     "env": {
         "node": true,
