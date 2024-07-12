@@ -35,7 +35,7 @@ function notifyRaw(options, callback) {
     activeId = id;
 
     if (typeof options === 'string') {
-        options = { title: 'node-notifier', message: options };
+        options = { title: 'toasted-notifier', message: options };
     }
     callback = callback || noop;
 

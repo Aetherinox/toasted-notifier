@@ -75,7 +75,7 @@ describe('terminal-notifier', function () {
         return function () {
             const args = arguments;
             setTimeout(function () {
-                fn.apply(null, args);
+                fn(...args);
             }, 0);
         };
     }

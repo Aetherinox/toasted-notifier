@@ -1,15 +1,20 @@
+/* eslint-disable no-console */
+
 const notifier = require('../');
 const nc = new notifier.NotificationCenter();
 
-const trueAnswer = 'Most def.';
+const trueAnswer = 'Yessir.';
+
+/*
+    @note       : closeLabel is case sensitive
+*/
 
 nc.notify(
     {
         title: 'Notifications',
-        message: 'Are they cool?',
+        message: 'Do you like them?',
         sound: 'Funk',
-        // case sensitive
-        closeLabel: 'Absolutely not',
+        closeLabel: 'Nope',
         actions: trueAnswer
     },
     function (err, response, metadata) {
@@ -17,15 +22,14 @@ nc.notify(
         console.log(metadata);
 
         if (metadata.activationValue !== trueAnswer) {
-            return; // No need to continue
+            return; // Do not continue
         }
 
         nc.notify(
             {
                 title: 'Notifications',
-                message: 'Do you want to reply to them?',
+                message: 'Do you wish to reply to them?',
                 sound: 'Funk',
-                // case sensitive
                 reply: true
             },
             function (err, response, metadata) {
@@ -37,5 +41,5 @@ nc.notify(
 );
 
 nc.on('replied', function (obj, options, metadata) {
-    console.log('User replied', metadata);
+    console.log('User has replied', metadata);
 });

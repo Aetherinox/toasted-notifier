@@ -32,7 +32,7 @@ function notifyRaw(options, callback) {
     options = utils.clone(options || {});
 
     if (typeof options === 'string') {
-        options = { title: 'node-notifier', message: options };
+        options = { title: 'toasted-notifier', message: options };
     }
 
     callback = utils.actionJackerDecorator(this, options, callback, function (data) {

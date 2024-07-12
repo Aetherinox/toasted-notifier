@@ -57,7 +57,7 @@ function notifyRaw(options, callback) {
     callback = callback || noop;
 
     if (typeof options === 'string') {
-        options = { title: 'node-notifier', message: options };
+        options = { title: 'toasted-notifier', message: options };
     }
 
     const actionJackedCallback = utils.actionJackerDecorator(this, options, callback, function (data) {
@@ -128,7 +128,7 @@ function doNotification(options, notifierOptions, callback) {
         wrapper: '',
         noEscape: true,
         explicitTrue: true,
-        allowedArguments: allowedArguments
+        allowedArguments
     });
 
     if (options.wait) {

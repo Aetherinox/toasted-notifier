@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const path = require('path');
 
 /*
@@ -17,7 +19,7 @@ const { WindowsToaster } = require('../');
 const customPath = path.join('vendor', 'ntfyToast', 'ntfytoast.exe');
 const toasted = new WindowsToaster({
     withFallback: false,
-    customPath: customPath
+    customPath
 });
 
 /*

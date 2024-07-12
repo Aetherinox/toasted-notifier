@@ -57,13 +57,13 @@ describe('WindowsToaster', function () {
         notifier.notify({
             title: 'Heya',
             message: 'foo bar',
-            extra: 'dsakdsa',
+            extra: 'extra message',
             foo: 'bar',
             close: 123,
             bar: true,
             install: '/dsa/',
             appID: 123,
-            icon: 'file:///C:/node-notifier/test/fixture/example_1.png',
+            icon: 'file:///C:/toasted-notifier/test/fixture/example_1.png',
             id: 1337,
             sound: 'Notification.IM',
             actions: ['Ok', 'Cancel']
@@ -106,7 +106,7 @@ describe('WindowsToaster', function () {
 
         notifier.notify({
             message: 'Heya',
-            appIcon: 'file:///C:/node-notifier/test/fixture/example_1.png'
+            appIcon: 'file:///C:/toasted-notifier/test/fixture/example_1.png'
         });
     });
 
@@ -257,7 +257,7 @@ describe('WindowsToaster', function () {
 
     it('should parse file protocol URL of icon', function (done) {
         utils.fileCommand = function (notifier, argsList, callback) {
-            expect(argsList[3]).toBe('C:\\node-notifier\\test\\fixture\\example_1.png');
+            expect(argsList[3]).toBe('C:\\toasted-notifier\\test\\fixture\\example_1.png');
             done();
         };
 
@@ -265,7 +265,7 @@ describe('WindowsToaster', function () {
         notifier.notify({
             title: 'Heya',
             message: 'foo bar',
-            icon: 'file:///C:/node-notifier/test/fixture/example_1.png'
+            icon: 'file:///C:/toasted-notifier/test/fixture/example_1.png'
         });
     });
 
@@ -277,7 +277,7 @@ describe('WindowsToaster', function () {
         };
 
         const notifier = new Notify();
-        notifier.notify({ title: 'Heya', message: 'foo bar', icon: icon });
+        notifier.notify({ title: 'Heya', message: 'foo bar', icon });
     });
 
     it('should not parse normal URL of icon', function (done) {
@@ -288,7 +288,7 @@ describe('WindowsToaster', function () {
         };
 
         const notifier = new Notify();
-        notifier.notify({ title: 'Heya', message: 'foo bar', icon: icon });
+        notifier.notify({ title: 'Heya', message: 'foo bar', icon });
     });
 
     it('should build command-line argument for actions array properly', () => {
@@ -303,7 +303,7 @@ describe('WindowsToaster', function () {
                 '-pipeName',
                 '\\\\.\\pipe\\notifierPipe-123456789',
                 '-p',
-                'C:\\node-notifier\\test\\fixture\\example_1.png',
+                'C:\\toasted-notifier\\test\\fixture\\example_1.png',
                 '-m',
                 'foo bar',
                 '-t',
@@ -324,7 +324,7 @@ describe('WindowsToaster', function () {
             close: 123,
             bar: true,
             install: '/dsa/',
-            icon: 'file:///C:/node-notifier/test/fixture/example_1.png',
+            icon: 'file:///C:/toasted-notifier/test/fixture/example_1.png',
             id: 1337,
             sound: 'Notification.IM',
             actions: ['Ok', 'Cancel']

@@ -35,7 +35,7 @@ function notifyRaw(options, callback) {
     }
 
     if (typeof options === 'string') {
-        options = { title: 'node-notifier', message: options };
+        options = { title: 'toasted-notifier', message: options };
     }
 
     if (!options.message) {
@@ -87,9 +87,9 @@ function doNotification(options, callback) {
     delete options.message;
 
     const argsList = utils.constructArgumentList(options, {
-        initial: initial,
+        initial,
         keyExtra: '-',
-        allowedArguments: allowedArguments
+        allowedArguments
     });
 
     utils.command(notifier, argsList, callback);

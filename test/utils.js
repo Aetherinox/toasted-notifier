@@ -61,7 +61,7 @@ describe('utils', function () {
 
             const expected = { title: 'Foo', message: 'Bar', icon: iconRead };
 
-            let obj = _.mapToGrowl({ title: 'Foo', message: 'Bar', icon: icon });
+            let obj = _.mapToGrowl({ title: 'Foo', message: 'Bar', icon });
             expect(obj).toEqual(expected);
 
             expect(obj.icon).toBeTruthy();
@@ -76,9 +76,9 @@ describe('utils', function () {
         it('should not map icon url for growl', function () {
             const icon = 'http://hostname.com/logo.png';
 
-            const expected = { title: 'Foo', message: 'Bar', icon: icon };
+            const expected = { title: 'Foo', message: 'Bar', icon };
 
-            expect(_.mapToGrowl({ title: 'Foo', message: 'Bar', icon: icon })).toEqual(expected);
+            expect(_.mapToGrowl({ title: 'Foo', message: 'Bar', icon })).toEqual(expected);
 
             expect(_.mapToGrowl({ title: 'Foo', message: 'Bar', appIcon: icon })).toEqual(expected);
         });

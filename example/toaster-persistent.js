@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const path = require('path');
 const toasted = require('../index');
 

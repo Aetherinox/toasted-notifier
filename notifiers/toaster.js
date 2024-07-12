@@ -65,7 +65,7 @@ function notifyRaw(options, callback) {
     };
 
     if (typeof options === 'string') {
-        options = { title: 'node-notifier', message: options };
+        options = { title: 'toasted-notifier', message: options };
     }
 
     if (typeof callback !== 'function') {
@@ -102,7 +102,6 @@ function notifyRaw(options, callback) {
         callback(null, result);
 
         /*
-            @ref    : https://github.com/mikaelbr/node-notifier/issues/334
                       Due to an issue with ntfytoast not using stdio and pipe
                       when notifications are disabled, make sure named pipe server
                       is closed before exiting.

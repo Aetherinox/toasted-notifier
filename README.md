@@ -286,7 +286,7 @@ toasted.notify(
 
 <br />
 
-There is a default timeout set of `10` to ensure that the application closes properly. To remove the timeout and have a notification instantly close _(does not support actions)_, set `timeout: false`. If you are using an `action:`; it is recommended to set timeout to a high value to ensure the user has time to respond to the notification.
+Default timeout is `10` to ensure that the application closes properly. To remove the timeout and have notifications instantly close _(does not support actions)_, set `timeout: false`. If you are using an `action:` declaration; it is recommended to set the timeout to a high value to ensure the user has time to respond to the notification.
 
 > [!NOTE]
 > **Exception**: If `reply: true` is defined, set timeout to a high value, or to nothing at all.
@@ -376,7 +376,7 @@ If you do not see notifications from Toasted-Notifier, click windows **Start** a
 
 Locate `NtfyToast`, or your `customPath` / `appID` program in the list.
 
-<sup>`Note`: <a href="https://github.com/Aetherinox/ntfy-toast">NtfyToast</a> is the library used in Toasted-Notifier for Windows notifications</sup>
+<sup>`Note`: <a href="https://github.com/Aetherinox/ntfy-toast">NtfyToast</a> is the library used by Toasted-Notifier for Windows notifications</sup>
 
 <div align="center">
 
@@ -709,7 +709,6 @@ For instructions on accomplishing this, read the section [appID support](#appid-
 ### Can't use Windows Toast notifications in WSL2
 Ntfy makes use of a 3rd party package for Windows notifications to work. You must change the permissions on the Ntfy vendor .exe in order for it to work properly.
 
-
 ```shell
 chmod +x node_modules/toasted-notifier/vendor/ntfyToast/ntfytoast.exe
 ```
@@ -811,8 +810,6 @@ When using toasted-notifier within a tmux session, it can cause the system to ab
     # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
     set -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL -l"
     ```
-
-
 
 <br />
 
