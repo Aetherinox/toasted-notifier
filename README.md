@@ -83,9 +83,9 @@ This library is packaged with [ntfy-desktop](https://github.com/Aetherinox/ntfy-
 <br />
 
 # About
-Toasted Node allows you to send cross platform native notifications using Node.js. Works well with Electron.
+Toasted Notifier allows you to send cross platform native notifications using Node.js. Works well with Electron.
 
-The correct notification package will be used by Toasted Node depending on the end-user operating system:
+The correct notification package will be used by Toasted Notifier depending on the end-user operating system:
 -  `MacOS`: Notification Center
    - `>= 10.8` for native notifications, or [Growl](#growl) if earlier. 
 -  `Linux`: notify-osd or libnotify-bin
@@ -592,7 +592,7 @@ If you wish to brand notifications with your own application name, then there ar
 ### Create App Shortcut
 You must create a windows shortcut (.lnk) within your windows Start Menu. This is a requirement by Microsoft.
 
-The program used by Toasted Node for Windows 10 & 11 notifications named ntfy-toast; includes a command which will help you create the shortcut link automatically. To do this, open Command Prompt and run the command:
+The package used by Toasted Notifier for Windows 10 & 11 notifications (ntfy-toast); includes a command which will help you create the shortcut link automatically. To do this, open Command Prompt and run the command:
 
 ```shell
 X:\path\to\node\project\node_modules\toasted-notifier\vendor\ntfyToast\ntfytoast.exe -install "MyApp\MyApp.lnk" "C:\path\to\myApp.exe" "My.APP_ID"
