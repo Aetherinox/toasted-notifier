@@ -6,7 +6,6 @@ const notifier = path.resolve(__dirname, '../vendor/ntfyToast/ntfytoast');
 const utils = require('../lib/utils');
 const Balloon = require('./balloon');
 // const os = require('os');
-const { v4: uuid } = require('uuid');
 
 const EventEmitter = require('events').EventEmitter;
 const util = require('util');
